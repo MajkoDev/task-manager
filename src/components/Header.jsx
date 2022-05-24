@@ -5,7 +5,7 @@ function Header() {
     color: "#ccc",
     fontWeight: "400",
     textAlign: "center",
-    margin: "50px 20px 60px 20px",
+    margin: "50px 20px 20px 20px",
   };
 
   return <h1 style={headerStyle}>Task Manager</h1>;
