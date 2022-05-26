@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { TaskListContext } from "../context/TaskListContext";
 
 function TaskForm() {
-  const { addTask, clearList } = useContext(TaskListContext);
+  const { addTask, clearList, editItem, editTask } =
+    useContext(TaskListContext);
 
   const [title, setTitle] = useState("");
 
@@ -14,10 +15,24 @@ function TaskForm() {
   // prevents reloading website
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask(title);
-    // clear input field
-    setTitle("");
+    // condition for editing tasks
+    if(editItem === null){
+      addTask(title);
+      // clear input field
+      setTitle("")
+    }else{
+      editTask(title, editItem.id)
+    }
+    
   };
+
+  useEffect(() => {
+    if (editItem !== null) {
+      setTitle(editItem.title);
+    } else {
+      setTitle("");
+    }
+  }, [editItem]);
 
   return (
     <form onSubmit={handleSubmit} className='form'>
