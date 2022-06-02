@@ -16,14 +16,13 @@ function TaskForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // condition for editing tasks
-    if(editItem === null){
+    if (editItem === null) {
       addTask(title);
       // clear input field
-      setTitle("")
-    }else{
-      editTask(title, editItem.id)
+      setTitle("");
+    } else {
+      editTask(title, editItem.id);
     }
-    
   };
 
   useEffect(() => {
