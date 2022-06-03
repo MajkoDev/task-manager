@@ -16,7 +16,7 @@ function TaskForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // condition for editing tasks
-    if (editItem === null) {
+    if (!editItem) {
       addTask(title);
       // clear input field
       setTitle("");
@@ -26,7 +26,7 @@ function TaskForm() {
   };
 
   useEffect(() => {
-    if (editItem !== null) {
+    if (editItem) {
       setTitle(editItem.title);
     } else {
       setTitle("");
@@ -44,8 +44,8 @@ function TaskForm() {
         required
       />
       <div className='buttons'>
-        <button type='submit' className='btn add-task-btn'>
-          Add Task
+        <button type='submit' className='btn add-task-btn' >
+          {editItem ? 'Edit Task' : 'Add Task'}
         </button>
         <button
           type='submit'
