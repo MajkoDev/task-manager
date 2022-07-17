@@ -2,8 +2,8 @@ import React from "react";
 
 function Header() {
   const headerStyle = {
-    color: "#ccc",
-    fontWeight: "400",
+    color: "#eeeeee",
+    fontWeight: "600",
     textAlign: "center",
     margin: "50px 20px 20px 20px",
   };
